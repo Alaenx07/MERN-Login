@@ -1,13 +1,14 @@
 import axios from "axios";
 
 export const register = async (value) =>
-  await axios.post(process.env.REACT_APP_API + "/registerr", value);
+  await axios.post(process.env.REACT_APP_API + "/register", value);
 
 export const login = async (value) =>
   await axios.post(process.env.REACT_APP_API + "/login", value);
 
 export const currentUser = async (authtoken) => {
-  return await axios.post(process.env.REACT_APP_API + "/current-user",
+  return await axios.post(
+    process.env.REACT_APP_API + "/current-user",
     {},
     {
       headers: {
@@ -15,10 +16,11 @@ export const currentUser = async (authtoken) => {
       },
     }
   );
-}
+};
 
 export const currentAdmin = async (authtoken) => {
-  return await axios.post(process.env.REACT_APP_API + "/current-admin",
+  return await axios.post(
+    process.env.REACT_APP_API + "/current-admin",
     {},
     {
       headers: {
@@ -26,4 +28,4 @@ export const currentAdmin = async (authtoken) => {
       },
     }
   );
-}
+};

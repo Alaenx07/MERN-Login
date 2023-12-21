@@ -1,4 +1,5 @@
 const express = require("express");
+const { JsonWebTokenError } = require("jsonwebtoken");
 const router = express.Router();
 
 //controller
@@ -8,11 +9,11 @@ const {
   listUser,
   editUser,
   deleteUser,
-  currentUser
+  currentUser,
 } = require("../controllers/auth");
 
 // middleware
-const { auth,adminCheck } = require("../middleware/auth");
+const { auth, adminCheck } = require("../middleware/auth");
 
 //@Endpoint  http://localhost:3000/api/register
 //@Method    POST
@@ -32,11 +33,7 @@ router.post("/current-user", auth, currentUser);
 //@Endpoint  http://localhost:3000/api/current-admin
 //@Method    POST
 //@Access    Private
-router.post("/current-admin", auth,adminCheck, currentUser);
-
-
-
-
+router.post("/current-admin", auth, adminCheck, currentUser);
 
 //@Endpoint  http://localhost:3000/api/auth
 //@Method    GET

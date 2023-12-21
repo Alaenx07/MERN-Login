@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 // functions
 import { register } from "../../functions/auth";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Register = () => {
+  console.log(process.env.REACT_APP_API);
   const [value, setValue] = useState({
     username: "",
     password: "",
@@ -66,15 +67,21 @@ const Register = () => {
 
             <div className="form-group">
               <label>Confirm Password</label>
-              <input 
-              className="form-control"
-              type="password" name="password1" onChange={handleChange} />
+              <input
+                className="form-control"
+                type="password"
+                name="password1"
+                onChange={handleChange}
+              />
             </div>
 
-          <br />
-            <button 
-            className="btn btn-success"
-            disabled={value.password.length < 6}>Submit</button>
+            <br />
+            <button
+              className="btn btn-success"
+              disabled={value.password.length < 6}
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
